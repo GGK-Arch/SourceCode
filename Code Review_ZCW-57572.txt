@@ -1,0 +1,19 @@
+DrugTestService.cs	add	$/ZeroChaos/ZeroChaos-14.2/BusinessClasses/ZeroChaos.Service/Services/Enrollment
+
+
+DB Comments
+-------------
+1. BIResultStatusType: column names should be BIResultStatusTypeID, BIResultStatusTypeName
+2. DrugTestStatusType : column names should be DrugTestStatusTypeID, DrugTestStatusTypeName
+Comments
+---------------------------------------------------
+1. Avoid opening sql connection logic in individual repository instead use RepositoryBaseExtensions.cs.
+	ex: GetDrugTestStatusType method in DrugTestRepository.cs, GetBIResultStatusType method in VendorEnrollBIRepository.cs
+(2. 	Please make sure to add appropriate comments for all the methods we create
+	ex: GetDrugTestViewModel and InsertUpdateDrugTestViewModel method in ResourceViewModel.cs)
+2. Please make sure to pass ValidationErrors and ValidationWarnings to upper layer from ViewModels in all the scenarios. Never allow them to swallow exceptions in ViewModels. --Task for Arch team
+3. Avoid using class name to access extension methods.
+	ex: ZeroChaos.ZCWeb.MappingHelper.ToDrugTestingViewModel(this DrugTestResponse drugTestResponse, DrugTestingViewModel drugTestViewModel, string employID, bool isEditVendorBI)
+	use it as drugTestResponse.ToDrugTestingViewModel(drugTestViewModel, drugTestViewModel.EmployID, drugTestViewModel.IsEditVendorBI)
+	
+	
