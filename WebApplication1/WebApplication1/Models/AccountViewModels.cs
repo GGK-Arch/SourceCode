@@ -12,7 +12,6 @@ namespace WebApplication1.Models
     public class ManageUserViewModel
     {
         [Required]
-        //Changed
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]
         public string OldPassword { get; set; }
