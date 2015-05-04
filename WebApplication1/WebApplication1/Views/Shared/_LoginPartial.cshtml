@@ -6,6 +6,7 @@
     @Html.AntiForgeryToken()
     <div id="may">Maywhether</div>
     <div id="pac">pacquio</div>    
+    <div>fd</div>
 <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
